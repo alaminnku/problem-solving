@@ -1,4 +1,4 @@
-// Prolem name - Two sum
+// Problem name - Two sum
 // Problem link - https://leetcode.com/problems/two-sum/
 function twoSum(nums: number[], target: number): number[] {
   const map = new Map<number, number>();

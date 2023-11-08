@@ -1,7 +1,7 @@
 {
   "name": "leetcode",
   "version": "1.0.0",
-  "description": "",
+  "description": "Leetcode problem solving",
   "main": "index.js",
   "scripts": {
     "script": "nodemon ./src/index.ts"
