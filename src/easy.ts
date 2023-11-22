@@ -15,3 +15,16 @@ function twoSum(nums: number[], target: number): number[] {
   }
   return [];
 }
+
+// Find the first recurring array element
+function findFirstRecurringElement(param: number[]) {
+  const elements: { [key: string]: boolean } = {};
+
+  for (let i = 0; i < param.length; i++) {
+    if (elements[param[i]]) {
+      return param[i];
+    } else {
+      elements[param[i]] = true;
+    }
+  }
+}
