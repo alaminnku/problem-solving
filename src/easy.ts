@@ -57,3 +57,22 @@ function mergeSortedArrays(param1: number[], param2: number[]) {
 
   return mergedArray;
 }
+
+// Problem name - Palindrome Number
+// Problem link - https://leetcode.com/problems/palindrome-number
+function isPalindrome(x: number): boolean {
+  const str = x.toString();
+  const length = str.length;
+
+  for (let i = 0; i < length / 2; i++) {
+    const firstChar = str[i];
+    const lastChar = str[length - 1 - i];
+
+    if (firstChar !== lastChar) {
+      return false;
+    }
+  }
+
+  return true;
+}
+console.log(isPalindrome(121));
