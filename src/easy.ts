@@ -76,3 +76,32 @@ function isPalindrome(x: number): boolean {
   return true;
 }
 console.log(isPalindrome(121));
+
+// Calculate points
+function calPoint(ops: string[]) {
+  let records = [];
+
+  for (let el of ops) {
+    if (!isNaN(+el)) {
+      records.push(+el);
+    }
+
+    if (el === 'C') {
+      records.pop();
+    }
+
+    if (el === 'D') {
+      const score: number = records[records.length - 1] * 2;
+      records.push(score);
+    }
+
+    if (el === '+') {
+      const last: number = records[records.length - 1];
+      const secondLast: number = records[records.length - 2];
+      const score = last + secondLast;
+      records.push(score);
+    }
+  }
+  return records.reduce((acc, curr) => acc + curr, 0);
+}
+console.log(calPoint(['5', '2', 'C', 'D', '+']));
