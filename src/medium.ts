@@ -49,5 +49,29 @@ function addTwoNumbers(
   }
   return null;
 }
-
 console.log(addTwoNumbers(myList1, myList2));
+
+// Generate a Pascal's Triangle
+// And find element with a provided index
+function findElement(index: number) {
+  let result = [];
+
+  for (let i = 0; i <= index; i++) {
+    if (i === 0) {
+      result.push([1]);
+    } else {
+      const prevElement = result[i - 1];
+      const newElement = [1];
+
+      for (let j = 1; j < prevElement.length; j++) {
+        newElement.push(prevElement[j - 1] + prevElement[j]);
+      }
+
+      newElement.push(1);
+      result.push(newElement);
+    }
+  }
+
+  return result[index];
+}
+console.log(findElement(3));
