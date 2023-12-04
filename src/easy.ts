@@ -105,3 +105,49 @@ function calPoint(ops: string[]) {
   return records.reduce((acc, curr) => acc + curr, 0);
 }
 console.log(calPoint(['5', '2', 'C', 'D', '+']));
+
+// Problem name - Find matching array element
+function findMatchingElementBetter(param1: string[], param2: string[]) {
+  let map: { [key: string]: boolean } = {};
+  for (let el of param1) {
+    map = map[el] ? map : { ...map, [el]: true };
+  }
+
+  for (let el of param2) {
+    if (map[el]) {
+      return true;
+    }
+  }
+
+  return false;
+}
+console.log(findMatchingElementBetter(['a', 'b', 'c'], ['c', 'd', 'e']));
+
+// Problem name - Merge Sorted Array
+// Problem link - https://leetcode.com/problems/merge-sorted-array/
+function merge(nums1: number[], m: number, nums2: number[], n: number): void {
+  let totalIndex = m + n - 1;
+  let nums1LastIndex = m - 1;
+  let nums2LastIndex = n - 1;
+
+  // Merge elements when nums1 and nums2
+  //  has at least 1 elements or m >= 0 and n >= 0
+  while (nums1LastIndex >= 0 && nums2LastIndex >= 0) {
+    if (nums1[nums1LastIndex] > nums2[nums2LastIndex]) {
+      nums1[totalIndex] = nums1[nums1LastIndex];
+      nums1LastIndex--;
+    } else {
+      nums1[totalIndex] = nums2[nums2LastIndex];
+      nums2LastIndex--;
+    }
+    totalIndex--;
+  }
+
+  // Merge nums2 elements when nums1 has 0 elements or m = 0
+  while (nums2LastIndex >= 0) {
+    nums1[totalIndex] = nums2[nums2LastIndex];
+    nums2LastIndex--;
+    totalIndex--;
+  }
+}
+merge([0], 0, [1], 1);
