@@ -130,23 +130,17 @@ function merge(nums1: number[], m: number, nums2: number[], n: number): void {
   let nums1LastIndex = m - 1;
   let nums2LastIndex = n - 1;
 
-  // Merge elements when nums1 and nums2
-  //  has at least 1 elements or m >= 0 and n >= 0
-  while (nums1LastIndex >= 0 && nums2LastIndex >= 0) {
-    if (nums1[nums1LastIndex] > nums2[nums2LastIndex]) {
-      nums1[totalIndex] = nums1[nums1LastIndex];
+  while (nums2LastIndex >= 0) {
+    let nums1LastEl = nums1[nums1LastIndex];
+    let nums2LastEl = nums2[nums2LastIndex];
+
+    if (nums1LastIndex >= 0 && nums1LastEl > nums2LastEl) {
+      nums1[totalIndex] = nums1LastEl;
       nums1LastIndex--;
     } else {
-      nums1[totalIndex] = nums2[nums2LastIndex];
+      nums1[totalIndex] = nums2LastEl;
       nums2LastIndex--;
     }
-    totalIndex--;
-  }
-
-  // Merge nums2 elements when nums1 has 0 elements or m = 0
-  while (nums2LastIndex >= 0) {
-    nums1[totalIndex] = nums2[nums2LastIndex];
-    nums2LastIndex--;
     totalIndex--;
   }
 }
