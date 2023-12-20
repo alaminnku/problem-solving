@@ -175,3 +175,29 @@ function removeDuplicates(nums: number[]): number {
   return k;
 }
 removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]);
+
+// Problem name - Majority Element
+// Problem link - https://leetcode.com/problems/majority-element
+function majorityElement(nums: number[]): number {
+  let map: { [key: string]: number } = {};
+
+  for (let num of nums) {
+    if (map[num]) {
+      map[num]++;
+    } else {
+      map[num] = 1;
+    }
+  }
+
+  let majority = '';
+  let highest = 0;
+  for (let item in map) {
+    if (map[item] > highest) {
+      majority = item;
+      highest = map[item];
+    }
+  }
+
+  return +majority;
+}
+majorityElement([2, 2, 1, 1, 1, 2, 2]);

@@ -78,7 +78,7 @@ console.log(findElement(3));
 
 // Problem name - Remove Duplicates from Sorted Array II
 // Problem link - https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii
-function removeDuplicates(numbers: number[]): number {
+function removeDuplicatesII(numbers: number[]): number {
   if (numbers.length <= 2) return numbers.length;
 
   let k = 2;
@@ -90,4 +90,4 @@ function removeDuplicates(numbers: number[]): number {
   }
   return k;
 }
-removeDuplicates([0, 0, 1, 1, 1, 1, 2, 3, 3]);
+removeDuplicatesII([0, 0, 1, 1, 1, 1, 2, 3, 3]);
