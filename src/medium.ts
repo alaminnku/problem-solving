@@ -49,7 +49,7 @@ function addTwoNumbers(
   }
   return null;
 }
-console.log(addTwoNumbers(myList1, myList2));
+// console.log(addTwoNumbers(myList1, myList2));
 
 // Generate a Pascal's Triangle
 // And find element with a provided index
@@ -74,7 +74,7 @@ function findElement(index: number) {
 
   return result[index];
 }
-console.log(findElement(3));
+// console.log(findElement(3));
 
 // Problem name - Remove Duplicates from Sorted Array II
 // Problem link - https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii
@@ -90,4 +90,25 @@ function removeDuplicatesII(numbers: number[]): number {
   }
   return k;
 }
-removeDuplicatesII([0, 0, 1, 1, 1, 1, 2, 3, 3]);
+// removeDuplicatesII([0, 0, 1, 1, 1, 1, 2, 3, 3]);
+
+// Problem name - Rotate Array
+// Problem link - https://leetcode.com/problems/rotate-array
+function rotate(nums: number[], k: number): void {
+  // Get nums length
+  const n = nums.length;
+
+  // Modify the value of k
+  // when it is greater than n
+  k = k > n ? k % n : k;
+
+  // Get the rotated part
+  const rotated = nums.slice(n - k);
+
+  // Remove the rotated part
+  nums.splice(n - k, k);
+
+  // Add the rotated part at the beginning
+  nums.unshift(...rotated);
+}
+// rotate([1, 2, 3, 4, 5, 6, 7], 3);
