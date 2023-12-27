@@ -15,6 +15,7 @@ function twoSum(nums: number[], target: number): number[] {
   }
   return [];
 }
+twoSum([1, 2, 3, 4], 2);
 
 // Find the first recurring array element
 function findFirstRecurringElement(param: number[]) {
@@ -28,6 +29,7 @@ function findFirstRecurringElement(param: number[]) {
     }
   }
 }
+findFirstRecurringElement([1, 2, 2, 3, 3, 4, 5]);
 
 // Merge two sorted arrays
 function mergeSortedArrays(param1: number[], param2: number[]) {
@@ -57,6 +59,7 @@ function mergeSortedArrays(param1: number[], param2: number[]) {
 
   return mergedArray;
 }
+mergeSortedArrays([1, 2, 3, 4], [2, 5, 6, 8]);
 
 // Problem name - Palindrome Number
 // Problem link - https://leetcode.com/problems/palindrome-number
@@ -75,7 +78,7 @@ function isPalindrome(x: number): boolean {
 
   return true;
 }
-console.log(isPalindrome(121));
+isPalindrome(121);
 
 // Calculate points
 function calPoint(ops: string[]) {
@@ -104,7 +107,7 @@ function calPoint(ops: string[]) {
   }
   return records.reduce((acc, curr) => acc + curr, 0);
 }
-console.log(calPoint(['5', '2', 'C', 'D', '+']));
+calPoint(['5', '2', 'C', 'D', '+']);
 
 // Problem name - Find matching array element
 function findMatchingElementBetter(param1: string[], param2: string[]) {
@@ -121,7 +124,7 @@ function findMatchingElementBetter(param1: string[], param2: string[]) {
 
   return false;
 }
-console.log(findMatchingElementBetter(['a', 'b', 'c'], ['c', 'd', 'e']));
+findMatchingElementBetter(['a', 'b', 'c'], ['c', 'd', 'e']);
 
 // Problem name - Merge Sorted Array
 // Problem link - https://leetcode.com/problems/merge-sorted-array/
@@ -201,3 +204,21 @@ function majorityElement(nums: number[]): number {
   return +majority;
 }
 majorityElement([2, 2, 1, 1, 1, 2, 2]);
+
+// Problem name - Best Time to Buy and Sell Stock
+// Problem link - https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+function maxProfit(prices: number[]): number {
+  let maxProfit = 0;
+  let minPrice = Infinity;
+
+  for (const price of prices) {
+    const profit = price - minPrice;
+    if (price < minPrice) {
+      minPrice = price;
+    } else if (profit > maxProfit) {
+      maxProfit = profit;
+    }
+  }
+  return maxProfit;
+}
+maxProfit([7, 1, 5, 3, 6, 4]);
