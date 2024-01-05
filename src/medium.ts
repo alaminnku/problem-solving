@@ -112,3 +112,20 @@ function rotate(nums: number[], k: number): void {
   nums.unshift(...rotated);
 }
 // rotate([1, 2, 3, 4, 5, 6, 7], 3);
+
+// Problem name - Best Time to Buy and Seel Stock II
+// Problem link - https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii
+function maxProfit(prices: number[]): number {
+  let maxProfit = 0;
+
+  for (let i = 0; i < prices.length; i++) {
+    const currPrice = prices[i];
+    const nextPrice = prices[i + 1];
+    if (nextPrice > currPrice) {
+      maxProfit += nextPrice - currPrice;
+    }
+  }
+
+  return maxProfit;
+}
+// console.log(maxProfit([7, 1, 5, 3, 6, 4]));
