@@ -113,7 +113,7 @@ function rotate(nums: number[], k: number): void {
 }
 // rotate([1, 2, 3, 4, 5, 6, 7], 3);
 
-// Problem name - Best Time to Buy and Seel Stock II
+// Problem name - Best Time to Buy and Sell Stock II
 // Problem link - https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii
 function maxProfit(prices: number[]): number {
   let maxProfit = 0;
@@ -129,3 +129,29 @@ function maxProfit(prices: number[]): number {
   return maxProfit;
 }
 // console.log(maxProfit([7, 1, 5, 3, 6, 4]));
+
+// Fibonacci with dynamic programming
+function fibonacci() {
+  const cache: { [key: string]: number } = {};
+  return function fib(n: number) {
+    if (n < 2) return n;
+    if (n in cache) return cache[n];
+
+    cache[n] = fib(n - 1) + fib(n - 2);
+    return cache[n];
+  };
+}
+// const fib = fibonacci();
+// console.log(fib(10));
+
+// Problem name - Jump Game
+// Problem link - https://leetcode.com/problems/jump-game/description
+function canJump(nums: number[]): boolean {
+  let steps = nums[0];
+  for (let i = 1; i < nums.length; i++) {
+    if (steps === 0) return false;
+    steps = Math.max(steps - 1, nums[i]);
+  }
+  return true;
+}
+// console.log(canJump([2, 0, 0]));
